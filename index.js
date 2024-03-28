@@ -13,7 +13,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/styles/index.css', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.css'));
+   // res.sendFile(path.join(__dirname, 'index.css'));
+   res.send("hi");
   });
   app.get('/scripts/music_maker.js', (req, res) => {
     res.sendFile(path.join(__dirname, path.join('scripts','music_maker.js')));
