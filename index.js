@@ -13,19 +13,19 @@ app.get('/', (req, res) => {
 });
 
 app.get('/styles/index.css', (req, res) => {
-    res.sendFile(path.join("apt-blockly.vercel.app", 'index.css'));
+    res.sendFile(path.join(__dirname, 'index.css'));
   });
   app.get('/scripts/music_maker.js', (req, res) => {
-    res.sendFile(path.join("apt-blockly.vercel.app", path.join('scripts','music_maker.js')));
+    res.sendFile(path.join(__dirname, path.join('scripts','music_maker.js')));
   });
   app.get('/scripts/sound_blocks.js', (req, res) => {
-    res.sendFile(path.join("apt-blockly.vercel.app", path.join('scripts','sound_blocks.js')));
+    res.sendFile(path.join(__dirname, path.join('scripts','sound_blocks.js')));
   });
   app.get('/scripts/main.js', (req, res) => {
-    res.sendFile(path.join("apt-blockly.vercel.app", path.join('scripts','main.js')));
+    res.sendFile(path.join(__dirname, path.join('scripts','main.js')));
   });
   app.get('/sounds/:name', (req, res) => {
-    res.sendFile(path.join("apt-blockly.vercel.app", path.join('sounds',`${req.params.name}`)));
+    res.sendFile(path.join(__dirname, path.join('sounds',`${req.params.name}`)));
     //res.sendFile(path.join(__dirname, path.join('sounds','')));
   });
 // Start the server
