@@ -1,9 +1,13 @@
 main {
-  width: 400px;
+  width: 100%;
+  left: 200px;
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-  height: 600px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -35,10 +39,10 @@ h1 {
 .blockly-editor {
   position: absolute;
   top: 64px;
-  left: -400px;
+  left: -300px;
   transition: left 0.4s;
-  height: 460px;
-  width: 400px;
+  height: 360px;
+  width: 300px;
   background-color: #eee;
 }
 
@@ -76,3 +80,24 @@ h1 {
   margin: 1em 0;
   float: right;
 }
+
+.wrapper{
+  display: flex;
+  justify-content: space-between ;
+  gap :10px;
+  overflow: scroll;
+  flex-direction: column;
+}
+
+.coder {
+ 
+  width: 400px;
+  height: 490px; /* Adjust width as needed */
+  padding: 10px; /* Add padding for spacing */
+  background-color: #f4f4f4; /* Add desired background color */
+  border: 1px solid #ddd; /* Add border for better visualization */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  margin: 10px;
+
+}
+

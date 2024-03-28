@@ -18,6 +18,9 @@
     try {
       // Execute the generated JavaScript code
       eval(code);
+      console.log(code);
+            document.getElementById("code").textContent = code;
+
     } catch (error) {
       console.log(error);
     }
