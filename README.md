@@ -1,5 +1,13 @@
-folder contains:
+Backend:
+You've integrated Acorn to parse code sent from the frontend.
+Upon receiving code from the frontend, Acorn parses it into an AST (Abstract Syntax Tree).
+The AST is then converted back into code on the backend.
+The backend then sends this code to the frontend.
 
+
+
+front end:
+folder contains:
 scripts/
         main.js - The main logic for the app. In the starter project it has all the code needed to navigate and switch between views in the basic app.
         
