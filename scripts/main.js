@@ -6,7 +6,6 @@
   function handlePlay(event) {
     // Load the Blockly workspace associated with the clicked button
     loadWorkspace(event.target);
-    
     // Generate JavaScript code from the Blockly workspace
     let code = javascript.javascriptGenerator.workspaceToCode(
       Blockly.getMainWorkspace(),
@@ -14,16 +13,28 @@
     
     // Append code to play the music using the MusicMaker library
     code += 'MusicMaker.play();';
-
-    try {
-      // Execute the generated JavaScript code
-      eval(code);
-      console.log(code);
-            document.getElementById("code").textContent = code;
-
-    } catch (error) {
-      console.log(error);
-    }
+    fetch('/generate-code', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ code })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(data => {
+      // Handle the response from the backend
+      console.log('Generated code from backend:', data);
+      const func = new Function(data);func();
+      document.getElementById("code").textContent = data;
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
   }
 
   // Function to load the Blockly workspace for a button
@@ -123,4 +134,5 @@
     horizontalLayout: true,
     toolboxPosition: 'end',
   });
+
 })();
